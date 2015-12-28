@@ -29,3 +29,7 @@
 6 . JoyStick（摇杆）
 
 > 用于游戏中的摇杆操作
+
+7 . TRAnimation（Sprite动画系统）
+
+> 用于类似RPG Maker的行走图切图
