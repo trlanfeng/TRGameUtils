@@ -4,8 +4,10 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class SpriteFrames : MonoBehaviour
 {
-    public int speed;
+    public float speed;
     public int curClip;
+    public bool isPlay;
+    public bool staticFirstFrane;
     [System.Serializable]
     public struct Clips
     {
@@ -43,23 +45,41 @@ public class SpriteFrames : MonoBehaviour
     float timer = 0;
     void playFrames(int clipIndex)
     {
-        timer += Time.deltaTime;
-        if (timer > 0.05f / speed)
+        if (isPlay)
         {
-            spriteIndex++;
-            timer = 0;
+            timer += Time.deltaTime;
+            if (timer > 0.05f / speed)
+            {
+                spriteIndex++;
+                timer = 0;
+            }
+            if (spriteIndex >= clips[clipIndex].sprites.Count)
+            {
+                if (clips[clipIndex].repeat)
+                {
+                    if (staticFirstFrane)
+                    {
+                        spriteIndex = 1;
+                    }
+                    else
+                    {
+                        spriteIndex = 0;
+                    }
+                }
+                else
+                {
+                    spriteIndex = clips[clipIndex].sprites.Count - 1;
+                }
+            }
+            SR.sprite = clips[clipIndex].sprites[spriteIndex];
         }
-        if (spriteIndex >= clips[clipIndex].sprites.Count)
+        else
         {
-            if (clips[clipIndex].repeat)
+            if (staticFirstFrane && spriteIndex != 0)
             {
                 spriteIndex = 0;
-            }
-            else
-            {
-                spriteIndex = clips[clipIndex].sprites.Count - 1;
+                SR.sprite = clips[clipIndex].sprites[spriteIndex];
             }
         }
-        SR.sprite = clips[clipIndex].sprites[spriteIndex];
     }
 }
