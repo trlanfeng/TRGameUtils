@@ -9,12 +9,15 @@
 BlinkIt （闪烁效果）
 
 > BlinkSprite : 支持Sprite、UI Image、UI Text三个组件的闪烁效果。
+
 > BlinkUIImage : 支持Sprite、UI Image、UI Text三个组件的闪烁效果。
+
 > BlinkUIText : 支持Sprite、UI Image、UI Text三个组件的闪烁效果。
 
 Camera2D （2D摄像机）
 
 > Camera2D : 用于Unity中开发2D游戏时的屏幕适应
+
 > Camera2DFix : 相机范围限制，防止显示超出边界，主要用于Tile类地图
 
 Charactor （角色控制类）
@@ -48,6 +51,7 @@ ScreenView （视图导航框架）
 Sprite （Sprite辅助处理）
 
 > SpriteBox : 获取Sprite像素大小，方便2D类型计算，而不使用3D的Unit单位来计算
+
 > SpriteFrames : 序列帧动画辅助脚本，可选首帧是否静态，存储多个动画状态用于调用
 
 TRAnimation（Sprite动画系统）
